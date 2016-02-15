@@ -352,6 +352,19 @@ sub color {
 		}
 		# fall-through to color palettes
 	}
+	if (defined $type and $type eq "game") {
+		if ($name =~ /-win$/) {
+			$type = "green";
+		} elsif ($name =~ /-lose$/) {
+			$type = "red";
+		} elsif ($name =~ /-opp$/) {
+			$type = "orange";
+		} elsif ($name =~ /-draw$/) {
+			$type = "yellow";
+		} else {
+			$type = "blue";
+		}
+	}
 	if (defined $type and $type eq "perl") {
 		if ($name =~ /::/) {		# C++
 			$type = "yellow";
